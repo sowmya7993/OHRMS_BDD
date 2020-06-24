@@ -54,10 +54,7 @@ public class StepDefinitions {
 		 driver=FunctionLibrary.startBrowser("chrome");
 	}
 
-	@When("^I Open Application$")
-	public void i_Open_Application() throws Throwable {
-		FunctionLibrary.openApplication(driver);
-	}
+	
 
 	@When("^I Wait For Username$")
 	public void i_Wait_For_Username() throws Throwable {
