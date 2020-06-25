@@ -42,6 +42,63 @@ Scenario: validate user registration of OHRMS
  When I Open Application
  When I Wait For "Username" with "id-txtUsername" for "10" seconds
  And I Enter "Admin" into "Username" with "id-txtUsername"
+ When I Wait For "Password" with "id-txtPassword" for "10" seconds
+ And I Enter "admin123" into "Password" with "id-txtPassword" 
+ When I Wait For "Login" with "id-btnLogin" for "10" seconds 
+ And I Click On "Login" with "id-btnLogin"
+ When I Wait For "Admin" with "id-menu_admin_viewAdminModule" for "10" seconds 
+ And I Click On "Admin" with "id-menu_admin_viewAdminModule"
+ When I Wait For "Add Button" with "name-btnAdd" for "10" seconds 
+ And I Click On "Add Button" with "name-btnAdd"
+ When I Wait For "Employee Name" with "id-systemUser_employeeName_empName" for "10" seconds
+ And I Enter "Hannah Flores" into "Employee Name" with "id-systemUser_employeeName_empName" 
+ When I Wait For "System Username" with "id-systemUser_userName" for "10" seconds
+ And I Enter "hybriduser6" into "System Username" with "id-systemUser_userName"
+ When I Wait For "System Password" with "name-systemUser[password]" for "10" seconds
+ And I Enter "hybriduser123" into "System Username" with "name-systemUser[password]"
+ When I Wait For "System Confirm Password" with "name-systemUser[confirmPassword]" for "10" seconds
+ And I Enter "hybriduser123" into "System Confirm Password" with "name-systemUser[confirmPassword]"
+ When I Wait For "Save Button" with "id-btnSave" for "10" seconds 
+ And I Click On "Save Button" with "id-btnSave"
+ When CloseBrowser
+ 
+ 
+@test2
+ Scenario Outline: validate user registration2 of OHRMS
+ When I Open "chrome"
+ When I Open Application
+ When I Wait For "Username" with "id-txtUsername" for "<Waittime>" seconds
+ And I Enter "<Uname>" into "Username" with "id-txtUsername"
+ When I Wait For "Password" with "id-txtPassword" for "<Waittime>" seconds
+ And I Enter "<Pwd>" into "Password" with "id-txtPassword" 
+ When I Wait For "Login" with "id-btnLogin" for "<Waittime>" seconds 
+ And I Click On "Login" with "id-btnLogin"
+ When I Wait For "Admin" with "id-menu_admin_viewAdminModule" for "<Waittime>" seconds 
+ And I Click On "Admin" with "id-menu_admin_viewAdminModule"
+ When I Wait For "Add Button" with "name-btnAdd" for "<Waittime>" seconds 
+ And I Click On "Add Button" with "name-btnAdd"
+ When I Wait For "Employee Name" with "id-systemUser_employeeName_empName" for "<Waittime>" seconds
+ And I Enter "<EmpName>" into "Employee Name" with "id-systemUser_employeeName_empName" 
+ When I Wait For "System Username" with "id-systemUser_userName" for "<Waittime>" seconds
+ And I Enter "<System Username>" into "System Username" with "id-systemUser_userName"
+ When I Wait For "System Password" with "name-systemUser[password]" for "<Waittime>" seconds
+ And I Enter "<System Password>" into "System Username" with "name-systemUser[password]"
+ When I Wait For "System Confirm Password" with "name-systemUser[confirmPassword]" for "<Waittime>" seconds
+ And I Enter "<System Password>" into "System Confirm Password" with "name-systemUser[confirmPassword]"
+ When I Wait For "Save Button" with "id-btnSave" for "<Waittime>" seconds 
+ And I Click On "Save Button" with "id-btnSave"
+ When CloseBrowser
+ 
+ Examples:
+ 
+ |Uname|Pwd|Waittime|EmpName|System Username|System Password|
+ |Admin|admin123|10|Hannah Flores|hybriduser7|hybriduser123|
+ |Admin|admin123|10|John Smith|hybriduser8|hybriduser1234|
+ |Admin|admin123|10|Steven Edwards|hybriduser9|hybriduser1235|
+ 
+ 
+ 
+ 
  
 # And I Enter Username
 # When I Wait For Password

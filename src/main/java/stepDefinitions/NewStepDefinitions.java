@@ -59,9 +59,20 @@ public class NewStepDefinitions {
 	@When("^I Enter \"([^\"]*)\" into \"([^\"]*)\" with \"([^\"]*)\"$")
 	public void i_Enter_into_with(String testData, String elementName, String locator) throws Throwable {
 		String[] locatorsplit=locator.split("-");
-		FunctionLibrary.typeAction(driver, locatorsplit[0], locatorsplit[1], testData);
-		
-		
+		FunctionLibrary.typeAction(driver, locatorsplit[0], locatorsplit[1], testData);	
+	}
+	
+	 			 
+	
+	@When("^I Click On \"([^\"]*)\" with \"([^\"]*)\"$")
+	public void i_Click_On_with(String elementName, String locator) throws Throwable {
+	 				 String[] locatorsplit=locator.split("-");
+	 				FunctionLibrary.clickAction(driver,  locatorsplit[0], locatorsplit[1]);	 
+	}
+	
+	@When("^CloseBrowser$")
+	public void closebrowser() throws Throwable {
+		FunctionLibrary.closeBrowser(driver);
 	}
 	
 }

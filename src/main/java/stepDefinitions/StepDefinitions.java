@@ -145,11 +145,6 @@ public class StepDefinitions {
 	public void click_On_Save() throws Throwable {
 		FunctionLibrary.clickAction(driver, "id", "btnSave");
 	}
-
-	@When("^CloseBrowser$")
-	public void closebrowser() throws Throwable {
-		FunctionLibrary.closeBrowser(driver);
-	}
 	
 	@When("^I Wait For Add Button$")
 	public void i_Wait_For_Add_Button() throws Throwable {
