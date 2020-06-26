@@ -3,6 +3,8 @@ package stepDefinitions;
 import org.openqa.selenium.WebDriver;
 
 import commonFunctionLibrary.FunctionLibrary;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.When;
 
 public class NewStepDefinitions {
@@ -74,5 +76,34 @@ public class NewStepDefinitions {
 	public void closebrowser() throws Throwable {
 		FunctionLibrary.closeBrowser(driver);
 	}
+	
+	@When("^I select \"([^\"]*)\" with \"([^\"]*)\"$")
+	public void i_select_with(String optionToSelect, String locator) throws Throwable {
+		String[] locatorsplit=locator.split("-");
+		FunctionLibrary.selectAction(driver, locatorsplit[0], locatorsplit[1], optionToSelect);
+	}
+	
+	@When("^I select from \"([^\"]*)\" with \"([^\"]*)\"$")
+	public void i_select_from_with(String  dateToSelect, String locator) throws Throwable {
+		String[] locatorsplit=locator.split("-");
+		FunctionLibrary.selectFromCalendar(driver, locatorsplit[0], locatorsplit[1], dateToSelect);
+	}
+	
+	@When("^I hit Enter on \"([^\"]*)\" with \"([^\"]*)\"$")
+	public void i_hit_Enter_on_with(String elementName, String locator) throws Throwable {
+		String[] locatorsplit=locator.split("-");
+		FunctionLibrary.hitEnter(driver,  locatorsplit[0], locatorsplit[1]);
+	}
+	
+	@Before
+	public void beforeScenario() {
+		System.out.println("********************* SCENARIO EXECUTION STARTED *******************");
+	}
+	
+	@After
+	public void AfterScenario() {
+		System.out.println("********************* SCENARIO EXECUTION COMPLETED *******************");
+	}
+
 	
 }
